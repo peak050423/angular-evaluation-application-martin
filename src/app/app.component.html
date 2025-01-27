@@ -2,5 +2,6 @@
   <div class="bg-gray-200 p-8 rounded-xl shadow-lg">
     <p class="text-xl">It Works!</p>
     <a href="#" class="text-blue-500 absolute bottom-4 right-4">Link</a>
+    <div *ngIf="(busy$ | async)" class="spinner">Loading...</div>
   </div>
 </div>
