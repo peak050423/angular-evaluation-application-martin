@@ -1,16 +1,25 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { StoreModule } from '@ngrx/store';
-import { busyReducer } from './store/busy.reducer';
-import { AppComponent } from './app.component';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    StoreModule.forRoot({ busy: busyReducer })
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+@Component({
+  selector: 'app-form-page',
+  templateUrl: './form-page.component.html',
+  styleUrls: ['./form-page.component.css']
 })
-export class AppModule {}
+export class FormPageComponent {
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      red: [null, [Validators.required, Validators.min(3), Validators.max(15)]],
+      green: [null, [Validators.required, Validators.min(3), Validators.max(15)]],
+      blue: [null, [Validators.required, Validators.min(3), Validators.max(15)]]
+    });
+  }
+
+  onSubmit(): void {
+    if (this.form.valid) {
+      console.log(this.form.value); // Placeholder for submit logic
+    }
+  }
+}

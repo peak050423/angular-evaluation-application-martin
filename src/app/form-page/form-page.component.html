@@ -1,0 +1,14 @@
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="red" style="color: red;">Red</label>
+        <input type="number" id="red" formControlName="red" />
+
+        <label for="green" style="color: green;">Green</label>
+        <input type="number" id="green" formControlName="green" />
+
+        <label for="blue" style="color: blue;">Blue</label>
+        <input type="number" id="blue" formControlName="blue" />
+
+        <button type="submit" [disabled]="form.invalid || isBusy">Submit</button>
+    </form>
+</div>
