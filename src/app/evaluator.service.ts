@@ -22,4 +22,3 @@ export class EvaluatorService {
     return of(sum % 2 === 0);
   }
 }
-git add .
